@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Properties;
 import com.cyfonly.flogger.constants.Constant;
+import jdk.nashorn.internal.runtime.regexp.joni.Config;
 
 /**
  * 公用工具类
@@ -82,14 +83,14 @@ public class CommUtil {
 			bIsNeedLoadCfg = true ;
 		}else{
 			Long lastModify = (Long)arrs[0];
-			if(lastModify.longValue() != cfgFile.lastModified()){
+			if(lastModify != cfgFile.lastModified()){
 				bIsNeedLoadCfg = true;
 			}else{
 				props = (Properties)arrs[1];
 			}
 		}
 		
-		if(bIsNeedLoadCfg == true){
+		if(bIsNeedLoadCfg){
 			FileInputStream fis = null;
 			try{
 				fis = new FileInputStream(cfgFile);
@@ -103,7 +104,7 @@ public class CommUtil {
 					if(fis != null){
 						fis.close();
 					}
-				}catch(Exception e){;}
+				}catch(Exception ignored){;}
 			}
 		}
 		return props.getProperty(keyName, "");
@@ -140,5 +141,9 @@ public class CommUtil {
 		pw.close();
 		return bo.toString();
 	}
-	
+
+    public static void main(String[] args) {
+        System.out.println(getExpStack(new Exception("test")));
+    }
+
 }

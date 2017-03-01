@@ -68,10 +68,10 @@ public class TimeUtil {
 	 */
 	public static String getPCDate(char c) {
 		StringBuffer sb = new StringBuffer(30);
-		Calendar nowtime = Calendar.getInstance();
-		int _year = nowtime.get(Calendar.YEAR); //获取年数
-		int _month = nowtime.get(Calendar.MONTH) + 1; //获取月数（Java中默认为0-11）
-		int _day = nowtime.get(Calendar.DAY_OF_MONTH); //获取天数
+		Calendar nowTime = Calendar.getInstance();
+		int _year = nowTime.get(Calendar.YEAR); //获取年数
+		int _month = nowTime.get(Calendar.MONTH) + 1; //获取月数（Java中默认为0-11）
+		int _day = nowTime.get(Calendar.DAY_OF_MONTH); //获取天数
 
 		sb.append(_year);
 		sb.append(c);
@@ -118,10 +118,10 @@ public class TimeUtil {
 	 */
 	public static String getCurrTime() {
 		StringBuffer sb = new StringBuffer(30);
-		Calendar nowtime = Calendar.getInstance();
-		int _hour = nowtime.get(Calendar.HOUR_OF_DAY); //获取小时
-		int _minute = nowtime.get(Calendar.MINUTE); //获取分钟
-		int _second = nowtime.get(Calendar.SECOND); //获取秒数
+		Calendar nowTime = Calendar.getInstance();
+		int _hour = nowTime.get(Calendar.HOUR_OF_DAY); //获取小时
+		int _minute = nowTime.get(Calendar.MINUTE); //获取分钟
+		int _second = nowTime.get(Calendar.SECOND); //获取秒数
 		if(_hour <10){
 			sb.append("0");
 		}
