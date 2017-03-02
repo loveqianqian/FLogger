@@ -145,7 +145,7 @@ public class LogManager extends Thread {
             LogFileItem lfi = logFileMap.get(s);
             if (currTime >= lfi.nextWriteTime || SINGLE_LOG_CACHE_SIZE <= lfi.currCacheSize || bIsForce) {
                 //获得需要进行输出的缓存列表
-                ArrayList<StringBuffer> alWrtLog = null;
+                ArrayList<StringBuffer> alWrtLog;
                 synchronized (lfi) {
                     if (lfi.currLogBuff == 'A') {
                         alWrtLog = lfi.alLogBufA;
